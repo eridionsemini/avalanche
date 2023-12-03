@@ -2,8 +2,7 @@ import React from 'react';
 import {InMemoryCache, ApolloClient, ApolloProvider} from "@apollo/client";
 
 import {SocketProvider} from "./context";
-import {Home} from "./components";
-import logo from './logo.svg';
+import {Home} from "./pages";
 import './App.css';
 
 const cache = new InMemoryCache({
@@ -32,22 +31,7 @@ function App() {
         <SocketProvider>
             <ApolloProvider client={client}>
                 <div className="App">
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <p>
-                            Edit <code>src/App.tsx</code> and save to reload.
-                        </p>
-                        <a
-                            className="App-link text-2xl"
-                            href="https://reactjs.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Learn React
-                            <Home title='Graph QL'/>
-                        </a>
-                    </header>
-
+                  <Home/>
                 </div>
             </ApolloProvider>
         </SocketProvider>

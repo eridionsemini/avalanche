@@ -14,9 +14,5 @@ export const useSocket = (): SocketContextValue => {
         return {socket: null, rakeBack: context.rakeBack}
     }
 
-    if (!context.rakeBack) {
-        return {socket: context.socket, rakeBack: null}
-    }
-
     return context;
 };
