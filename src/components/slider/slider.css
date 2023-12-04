@@ -1,6 +1,7 @@
 .horizontal-slider {
     width: 100%;
     margin: auto;
+    max-width: 80%;
 }
 .example-thumb {
     cursor: pointer;

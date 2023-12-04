@@ -13,7 +13,7 @@ export const Navbar: FC = (): ReactElement => {
                     <ReactSVG src={logo}/>
                     <ReactSVG src={bet} className='ml-4'/>
                 </div>
-                <div className='flex item-center'>
+                <div className='flex item-center cursor-pointer'>
                     <div className='bg-black px-4 py-2 rounded'>
                         <ReactSVG src={user}/>
                     </div>
