@@ -23,7 +23,7 @@ export const Card: FC<CardProps> = ({title, description, imageUrl, content}): Re
                     <div><ReactSVG src={blink}/></div>
                 </div>
                 <div className='text-gray-500 text-xs font-bold text-start mt-2'> {description}</div>
-                <div className='mt-4 flex justify-start'>{content}</div>
+                <div className='mt-4'>{content}</div>
             </div>
         </div>
     )

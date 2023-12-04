@@ -8,3 +8,4 @@ export * from './card-content';
 export * from './slider';
 export * from './navbar';
 export * from './wager';
+export * from './bar';

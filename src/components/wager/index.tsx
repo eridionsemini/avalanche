@@ -62,9 +62,8 @@ export const Wager: FC = (): ReactElement => {
                     </label>
                     <input type="number" id="max-payout"
                            aria-describedby="helper-text-explanation"
-                           value={multipleBets}
+                           value={0}
                            disabled
-                           onChange={(e) => setMultipleBets(Number(e.target.value))}
                            className="bg-black w-2/3 border outline-none font-bold border-zinc-400 text-white text-sm rounded-lg focus:ring-zinc-500 focus:border-zinc-500 block p-2.5"
                            placeholder=""/>
                 </div>
@@ -75,8 +74,8 @@ export const Wager: FC = (): ReactElement => {
                     </label>
                     <input type="number" id="total-payout"
                            aria-describedby="helper-text-explanation"
-                           value={multipleBets}
-                           onChange={(e) => setMultipleBets(Number(e.target.value))}
+                           value={0}
+                           disabled
                            className="bg-black w-2/3 border outline-none font-bold border-zinc-400 text-white text-sm rounded-lg focus:ring-zinc-500 focus:border-zinc-500 block p-2.5"
                            placeholder=""/>
                 </div>

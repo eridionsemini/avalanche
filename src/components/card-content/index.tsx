@@ -11,14 +11,14 @@ export const CardContent: FC<CardContentProps> = ({
                                                   }): ReactElement => {
     return (
         <div>
-            <div className='flex items-center text-sm justify-between'>
+            <div className='flex items-center w-full text-sm justify-between'>
                 <div className='font-bold'>{firstRowLabel}</div>
                 <div>
                     <span className='font-bold'>{firstRowValue}</span>
                     <span className='ml-1 font-extrabold  text-gray-500'>{firstRowUnit}</span>
                 </div>
             </div>
-            <div className='flex items-center text-sm justify-between mt-2'>
+            <div className='flex items-center w-full text-sm justify-between mt-2'>
                 <div className='font-bold'>{secondRowLabel}</div>
                 <div>
                     <span className='font-bold'>{secondRowValue}</span>

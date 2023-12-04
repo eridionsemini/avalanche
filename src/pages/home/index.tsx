@@ -1,10 +1,10 @@
 import React, {FC, ReactElement} from "react";
-import {Sidebar, FlipCard, LiveWin, Card, CardContent, Slider, Navbar, Wager} from "../../components";
+import {useQuery} from "@apollo/client";
+import {Sidebar, FlipCard, LiveWin, Card, CardContent, Slider, Navbar, Wager, Bar} from "../../components";
 import {useSocket} from "../../hooks";
 import {liveWinData} from "../../data/live-win";
 import bet from '../../assets/images/bet.jpg';
 import card from '../../assets/images/card.png';
-import {useQuery} from "@apollo/client";
 import {GET_JACKPOT} from "../../queries/jackpot";
 
 export const Home: FC = (): ReactElement => {
@@ -28,7 +28,8 @@ export const Home: FC = (): ReactElement => {
                             <Wager/>
                         </div>
                     </div>
-                    <div className="grid grid-cols-4 gap-4">
+                    <Bar/>
+                    <div className="grid grid-cols-4 gap-3">
                         <div className="rounded min-h-40">
                             <Card title='House'
                                   imageUrl={card}
