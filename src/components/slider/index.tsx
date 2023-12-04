@@ -28,12 +28,12 @@ export const Slider: FC = (): ReactElement => {
                     value={value}/>
 
             </div>
-            <div className='mt-20 w-3/4 flex m-auto justify-evenly'>
+            <div className='mt-20 w-3/4 flex m-auto items-center justify-evenly'>
                 <div>
                     <label htmlFor="roll-input"
                            className="mb-1 text-sm flex items-center font-bold font-medium text-zinc-500">
                         Roll Under
-                        <ReactSVG src={switchIcon} className='ml-10 cursor-pointer' onClick={() => setValue(max - value)}/>
+                        <ReactSVG src={switchIcon} className='ml-2 cursor-pointer' onClick={() => setValue(max - value)}/>
                     </label>
                     <input type="number" id="roll-input"
                            aria-describedby="helper-text-explanation"
@@ -59,12 +59,10 @@ export const Slider: FC = (): ReactElement => {
                            aria-describedby="helper-text-explanation"
                            disabled
                            value={multiplier}
-                           className="bg-zinc-600 border outline-none bold border-zinc-400 text-white text-sm rounded-lg block w-3/4 p-2.5"
+                           className="bg-zinc-600 border outline-none font-bold border-zinc-400 text-white text-sm rounded-lg block w-3/4 p-2.5"
                            placeholder=""/>
                 </div>
             </div>
-
         </>
-
     )
 }

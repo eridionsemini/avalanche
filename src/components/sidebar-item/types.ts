@@ -5,4 +5,5 @@ export interface SidebarItemProps extends HTMLProps<HTMLDivElement> {
     label: string;
     hasBadge?: boolean;
     badgeLabel?: string;
+    textColor?: string;
 }
