@@ -1,17 +1,17 @@
-import coin from '../assets/svg/live-win/coin.svg';
-import baccarat from '../assets/svg/live-win/baccarat.svg';
-import dice from '../assets/svg/live-win/dice.svg';
-import racing from '../assets/svg/live-win/horse-racing.svg';
-import keno from '../assets/svg/live-win/keno.svg';
-import limbo from '../assets/svg/live-win/limbo.svg';
-import mines from '../assets/svg/live-win/mines.svg';
-import moon from '../assets/svg/live-win/moon.svg';
-import plinko from '../assets/svg/live-win/plinko.svg';
-import poker from '../assets/svg/live-win/poker.svg';
-import range from '../assets/svg/live-win/range.svg';
-import roulette from '../assets/svg/live-win/roulette.svg';
-import slots from '../assets/svg/live-win/slots.svg';
-import wheel from '../assets/svg/live-win/wheel.svg';
+import baccarat from 'assets/svg/live-win/baccarat.svg';
+import coin from 'assets/svg/live-win/coin.svg';
+import dice from 'assets/svg/live-win/dice.svg';
+import racing from 'assets/svg/live-win/horse-racing.svg';
+import keno from 'assets/svg/live-win/keno.svg';
+import limbo from 'assets/svg/live-win/limbo.svg';
+import mines from 'assets/svg/live-win/mines.svg';
+import moon from 'assets/svg/live-win/moon.svg';
+import plinko from 'assets/svg/live-win/plinko.svg';
+import poker from 'assets/svg/live-win/poker.svg';
+import range from 'assets/svg/live-win/range.svg';
+import roulette from 'assets/svg/live-win/roulette.svg';
+import slots from 'assets/svg/live-win/slots.svg';
+import wheel from 'assets/svg/live-win/wheel.svg';
 
 
 export const liveWinData = [

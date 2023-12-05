@@ -1,9 +1,9 @@
-import coin from '../assets/svg/sidebar/coin.svg';
-import horse from '../assets/svg/sidebar/horse.svg';
-import crash from '../assets/svg/sidebar/crash.svg';
-import wheel from '../assets/svg/sidebar/wheel.svg';
-import roulette from '../assets/svg/sidebar/roulette.svg';
-import plinko from '../assets/svg/sidebar/plinko.svg';
+import coin from 'assets/svg/sidebar/coin.svg';
+import crash from 'assets/svg/sidebar/crash.svg';
+import horse from 'assets/svg/sidebar/horse.svg';
+import plinko from 'assets/svg/sidebar/plinko.svg';
+import roulette from 'assets/svg/sidebar/roulette.svg';
+import wheel from 'assets/svg/sidebar/wheel.svg';
 
 export const sidebar = [
     {

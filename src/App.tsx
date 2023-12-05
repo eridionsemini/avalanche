@@ -1,12 +1,14 @@
 import React from 'react';
-import {InMemoryCache, ApolloClient, ApolloProvider} from "@apollo/client";
+
+import './App.css';
+
+import {ApolloClient, ApolloProvider,InMemoryCache} from "@apollo/client";
 import {DynamicContextProvider, SortWallets} from "@dynamic-labs/sdk-react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {DAppProvider} from '@usedapp/core';
+import {BrowserRouter, Route,Routes} from "react-router-dom";
+
+import {Home, Profile} from "pages";
 
 import {SocketProvider} from "./context";
-import {Home, Profile} from "./pages";
-import './App.css';
 
 const cache = new InMemoryCache({
     typePolicies: {
@@ -28,16 +30,10 @@ const client = new ApolloClient({
     cache,
     connectToDevTools: process.env.NODE_ENV === 'development'
 })
-const config = {
-    readOnlyChainId: 1,
-    autoConnect: false,
-    pollingInterval: 15000,
-}
 
 function App() {
     return (
         <SocketProvider>
-            <DAppProvider config={config}>
                 <DynamicContextProvider
                     settings={{
                         environmentId: "f0b977d0-b712-49f1-af89-2a24c47674da",
@@ -68,7 +64,6 @@ function App() {
                         </div>
                     </ApolloProvider>
                 </DynamicContextProvider>
-            </DAppProvider>
         </SocketProvider>
     );
 }

@@ -1,18 +1,21 @@
 import React, {FC, ReactElement} from "react";
+
 import {ReactSVG} from "react-svg";
-import {SidebarItem} from '..'
-import {sidebar} from "../../data/sidebar";
-import coin from '../../assets/svg/sidebar/shiny-coin.svg';
-import arrow from '../../assets/svg/sidebar/arrow.svg';
-import crypto from '../../assets/svg/sidebar/crypto.svg';
-import visa from '../../assets/svg/sidebar/visa.svg';
-import masterCard from '../../assets/svg/sidebar/master-card.svg';
-import applePay from '../../assets/svg/sidebar/apple-pay.svg';
-import googlePay from '../../assets/svg/sidebar/google-pay.svg';
+
+import {SidebarItem} from 'components';
+
+import {sidebar} from "data/sidebar";
+
+import applePay from 'assets/svg/sidebar/apple-pay.svg';
+import arrow from 'assets/svg/sidebar/arrow.svg';
+import crypto from 'assets/svg/sidebar/crypto.svg';
+import googlePay from 'assets/svg/sidebar/google-pay.svg';
+import masterCard from 'assets/svg/sidebar/master-card.svg';
+import coin from 'assets/svg/sidebar/shiny-coin.svg';
+import visa from 'assets/svg/sidebar/visa.svg';
 
 export const Sidebar: FC = (): ReactElement => {
     return (
-        <div>
             <aside id="cta-button-sidebar"
                    className="fixed top-20 left-0 z-20 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
                    aria-label="Sidebar">
@@ -46,6 +49,5 @@ export const Sidebar: FC = (): ReactElement => {
                     </div>
                 </div>
             </aside>
-        </div>
     )
 }

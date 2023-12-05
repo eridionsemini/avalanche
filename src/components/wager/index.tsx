@@ -1,30 +1,16 @@
 import React, {FC, ReactElement, useState} from "react";
-import {ReactSVG} from "react-svg";
+
 import {useMutation} from "@apollo/client";
 import {useDynamicContext} from "@dynamic-labs/sdk-react";
-import {Contract, utils} from 'ethers';
+import {ABI,walletAddress} from "cons";
+import {Contract, Signer, utils} from 'ethers';
+import {ReactSVG} from "react-svg";
 
-import question from '../../assets/svg/question.svg';
-import arrow from '../../assets/svg/sidebar/arrow.svg';
+import {UPDATE_RAKE_BACK} from "mutations/rakeback";
 
-import {UPDATE_RAKE_BACK} from "../../mutations/rakeback";
+import question from 'assets/svg/question.svg';
+import arrow from 'assets/svg/sidebar/arrow.svg';
 
-const walletAddress = '0x6cD52190a1fc6094D8ACCb2698dEAc9270836F6d';
-
-const ABI = [
-    {
-        constant: false,
-        inputs: [
-            {name: '_to', type: 'address'},
-            {name: '_value', type: 'uint256'},
-        ],
-        name: 'transfer',
-        outputs: [{name: 'success', type: 'bool'}],
-        payable: false,
-        stateMutability: 'nonpayable',
-        type: 'function',
-    },
-];
 
 
 export const Wager: FC = (): ReactElement => {
@@ -32,7 +18,7 @@ export const Wager: FC = (): ReactElement => {
     const [multipleBets, setMultipleBets] = useState<number>(0);
     const [updateRakeback] = useMutation(UPDATE_RAKE_BACK, {
         variables: {
-            addRakeback: wager * multipleBets
+            addRakeback: utils.parseEther((wager * multipleBets).toString())
         }
     })
 
@@ -43,17 +29,16 @@ export const Wager: FC = (): ReactElement => {
         if (!primaryWallet) {
             return;
         }
-        const signer: any = await primaryWallet.connector.getSigner();
+        const signer = await primaryWallet.connector.getSigner() as Signer;
 
         const contractInterface = new utils.Interface(ABI);
 
         try {
             const contract = new Contract(walletAddress, contractInterface, signer);
             const value = utils.parseEther((wager * multipleBets).toString());
-            const res = await contract['transfer'](walletAddress, value);
-
-            console.log('res', res);
-
+            const tx = await contract['transfer'](walletAddress, value);
+            await tx.wait();
+            console.log('tx res', tx);
             await updateRakeback();
         } catch (e) {
             console.log(e);
@@ -133,6 +118,7 @@ export const Wager: FC = (): ReactElement => {
                 <div className='h-1 bg-zinc-700 w-2/4 rounded'/>
             </div>
             <button
+                disabled={disabled}
                 onClick={deposit}
                 className={`rounded border border-zinc-400 flex items-center px-4 py-2 justify-center cursor-pointer mt-4 ${disabled ? 'bg-zinc-600' : 'bg-green-700'} w-full`}>
                 <span className='uppercase font-bold text-sm text-white'>Deposit</span>

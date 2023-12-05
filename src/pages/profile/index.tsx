@@ -1,4 +1,5 @@
 import React, {FC, ReactElement} from "react";
+
 import {useDynamicContext} from "@dynamic-labs/sdk-react";
 import {useNavigate} from 'react-router-dom';
 
@@ -16,10 +17,10 @@ export const Profile: FC = (): ReactElement => {
 
     const unLink = (id: string) => {
         (handleUnlinkWallet(id) as Promise<void>)
-            .then((res: any) =>
+            .then((res) =>
                 console.log("res", res, "connected wallets", connectedWallets)
             )
-            .catch((err: any) => console.log("err", err));
+            .catch((err) => console.log("err", err));
     }
 
     return (
@@ -31,7 +32,7 @@ export const Profile: FC = (): ReactElement => {
                 <div className='text-white text-center uppercase font-extrabold'>
                     Profile
                 </div>
-                {connectedWallets && connectedWallets.length > 0 && (
+                {connectedWallets.length > 0 && (
                     <>
                         <div className='text-white font-bold text-center mt-8'>Connected Wallets</div>
                         <div className='mt-8'>

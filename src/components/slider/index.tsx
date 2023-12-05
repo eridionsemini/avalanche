@@ -1,10 +1,11 @@
 import React, {FC, ReactElement, useState} from "react";
+
+import './slider.css';
+
 import ReactSlider from "react-slider";
 import {ReactSVG} from "react-svg";
 
-import switchIcon from '../../assets/svg/switch.svg';
-
-import './slider.css';
+import switchIcon from 'assets/svg/switch.svg';
 
 const min = 0;
 const max = 100;

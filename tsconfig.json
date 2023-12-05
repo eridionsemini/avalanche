@@ -18,9 +18,29 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src/",
+    "paths": {
+      "components/*": ["./components/*"],
+      "context/*": ["./context/*"],
+      "pages/": ["./pages/"],
+      "pages/*": ["./pages/*"],
+      "hooks/": ["./hooks/"],
+      "hooks/*": ["./hooks/*"],
+      "data/*": ["./data/*"],
+      "assets/*": ["./assets/*"],
+      "utils/*": ["./utils/*"],
+      "queries/*": ["./queries/*"],
+      "mutations/*": ["./mutations/*"],
+      "cons/": ["./cons/"],
+      "cons/*": ["./cons/*"]
+    }
   },
   "include": [
-    "src"
-  ]
+    "src",
+    "tailwind.config.js",
+    ".eslintrc.js",
+    "env.d.ts",
+    "craco.config.js",
+  ],
 }
