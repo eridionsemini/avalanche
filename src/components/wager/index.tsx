@@ -1,6 +1,7 @@
 import React, {FC, ReactElement, useState} from "react";
 import {ReactSVG} from "react-svg";
 import {useMutation} from "@apollo/client";
+import {useDynamicContext} from "@dynamic-labs/sdk-react";
 import question from '../../assets/svg/question.svg';
 import arrow from '../../assets/svg/sidebar/arrow.svg';
 
@@ -15,7 +16,14 @@ export const Wager: FC = (): ReactElement => {
         }
     })
 
+    const {
+        isAuthenticated,
+        primaryWallet,
+    } = useDynamicContext();
+
     const onClick = async () => await updateRakeback();
+
+    const disabled = !isAuthenticated || !primaryWallet || wager === 0 || multipleBets === 0;
 
     return (
         <div className='flex flex-col'>
@@ -87,11 +95,12 @@ export const Wager: FC = (): ReactElement => {
                 </div>
                 <div className='h-1 bg-zinc-700 w-2/4 rounded'/>
             </div>
-            <div
+            <button
+                disabled={disabled}
                 onClick={onClick}
-                className='rounded border border-zinc-400 flex items-center px-4 py-2 justify-center cursor-pointer mt-4 bg-zinc-600 w-full'>
+                className={`rounded border border-zinc-400 flex items-center px-4 py-2 justify-center cursor-pointer mt-4 ${disabled ? 'bg-zinc-600': 'bg-green-700'} w-full`}>
                 <span className='uppercase font-bold text-sm text-white'>Deposit</span>
-            </div>
+            </button>
         </div>
     )
 }

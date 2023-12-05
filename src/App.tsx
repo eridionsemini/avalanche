@@ -1,9 +1,10 @@
 import React from 'react';
 import {InMemoryCache, ApolloClient, ApolloProvider} from "@apollo/client";
 import {DynamicContextProvider, SortWallets} from "@dynamic-labs/sdk-react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import {SocketProvider} from "./context";
-import {Home} from "./pages";
+import {Home, Profile} from "./pages";
 import './App.css';
 
 const cache = new InMemoryCache({
@@ -33,7 +34,7 @@ function App() {
             <DynamicContextProvider
                 settings={{
                     environmentId: "f0b977d0-b712-49f1-af89-2a24c47674da",
-                    walletsFilter: SortWallets(["coinbase", "metamask", "rainbow"]),
+                    walletsFilter: SortWallets(["metamask", "coinbase", "rainbow"]),
                     defaultNumberOfWalletsToShow: 3,
                     eventsCallbacks: {
                         onLinkSuccess: (args) => {
@@ -45,13 +46,18 @@ function App() {
                         onLogout: (args) => {
                             console.log('logout success', args)
                         },
-
                     },
                 }}
             >
                 <ApolloProvider client={client}>
                     <div className="App">
-                        <Home/>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route path='*' element={<Home/>}/>
+                                <Route path='/home' element={<Home/>}/>
+                                <Route path='/profile' element={<Profile/>}/>
+                            </Routes>
+                        </BrowserRouter>
                     </div>
                 </ApolloProvider>
             </DynamicContextProvider>
