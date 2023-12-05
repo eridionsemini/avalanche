@@ -9,7 +9,7 @@ export const Profile: FC = (): ReactElement => {
         handleUnlinkWallet,
         handleLogOut,
         setShowAuthFlow,
-        isAuthenticated
+        isAuthenticated,
     } = useDynamicContext();
 
     const navigate = useNavigate();
@@ -55,12 +55,10 @@ export const Profile: FC = (): ReactElement => {
                     </>
                 )}
 
-
                 <div className="m-auto mt-4 px-2 font-bold text-white text-sm bg-green-500 rounded-md cursor-pointer"
                      onClick={isAuthenticated && primaryWallet ? () => handleLogOut() : () => setShowAuthFlow(true)}>
                     {isAuthenticated && primaryWallet ? <span> Logout</span> : <span>Login</span>}
                 </div>
-
             </div>
         </div>
     );

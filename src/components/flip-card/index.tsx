@@ -1,4 +1,4 @@
-import React, {FC, ReactElement} from "react";
+import React, {FC, ReactElement, useId} from "react";
 import FlipNumbers from 'react-flip-numbers';
 import {FlipCardProps} from './types';
 
@@ -7,15 +7,27 @@ export const FlipCard: FC<FlipCardProps> = ({numbers, unit = '$'}): ReactElement
         fontSize: '14px',
         border: '1px solid gray',
         borderRadius: '4px',
-        marginRight: '8px'
+        marginRight: '8px',
     };
 
+    const id = useId();
+
+    const parentDiv = document.getElementById(id);
+
+    if (parentDiv !== null) {
+        const sectionElement = parentDiv.querySelector('section');
+        if (sectionElement !== null) {
+            sectionElement.style.gap = '4px';
+        }
+    }
+
     return (
-        <div className='flex items-center'>
+        <div id={id} className='flex items-center'>
             <div className='mr-2 bg-red-600 px-1 rounded'>{unit}</div>
             <FlipNumbers height={18}
                          width={18}
                          numberStyle={numberStyle}
+                         nonNumberStyle={{gap: '4px'}}
                          duration={5}
                          color="white"
                          background='black'
