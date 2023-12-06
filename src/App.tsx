@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 
-import './App.css';
-
-import {ApolloClient, ApolloProvider,InMemoryCache} from "@apollo/client";
+import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
 import {DynamicContextProvider, SortWallets} from "@dynamic-labs/sdk-react";
-import {BrowserRouter, Route,Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
+import {SocketProvider} from "context";
 import {Home, Profile} from "pages";
 
-import {SocketProvider} from "./context";
+import {environmentId} from "cons";
 
 const cache = new InMemoryCache({
     typePolicies: {
@@ -31,39 +30,37 @@ const client = new ApolloClient({
     connectToDevTools: process.env.NODE_ENV === 'development'
 })
 
-function App() {
+function App(): ReactElement {
     return (
         <SocketProvider>
-                <DynamicContextProvider
-                    settings={{
-                        environmentId: "f0b977d0-b712-49f1-af89-2a24c47674da",
-                        walletsFilter: SortWallets(["metamask", "coinbase", "rainbow"]),
-                        defaultNumberOfWalletsToShow: 3,
-                        eventsCallbacks: {
-                            onLinkSuccess: (args) => {
-                                console.log('link success', args)
-                            },
-                            onAuthSuccess: (args) => {
-                                console.log('auth success', args)
-                            },
-                            onLogout: (args) => {
-                                console.log('logout success', args)
-                            },
+            <DynamicContextProvider
+                settings={{
+                    environmentId: environmentId,
+                    walletsFilter: SortWallets(["metamask", "coinbase", "rainbow"]),
+                    defaultNumberOfWalletsToShow: 3,
+                    eventsCallbacks: {
+                        onLinkSuccess: (args) => {
+                            console.log('link success', args)
                         },
-                    }}
-                >
-                    <ApolloProvider client={client}>
-                        <div className="App">
-                            <BrowserRouter>
-                                <Routes>
-                                    <Route path='*' element={<Home/>}/>
-                                    <Route path='/home' element={<Home/>}/>
-                                    <Route path='/profile' element={<Profile/>}/>
-                                </Routes>
-                            </BrowserRouter>
-                        </div>
-                    </ApolloProvider>
-                </DynamicContextProvider>
+                        onAuthSuccess: (args) => {
+                            console.log('auth success', args)
+                        },
+                        onLogout: (args) => {
+                            console.log('logout success', args)
+                        },
+                    },
+                }}
+            >
+                <ApolloProvider client={client}>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path='*' element={<Home/>}/>
+                            <Route path='/home' element={<Home/>}/>
+                            <Route path='/profile' element={<Profile/>}/>
+                        </Routes>
+                    </BrowserRouter>
+                </ApolloProvider>
+            </DynamicContextProvider>
         </SocketProvider>
     );
 }

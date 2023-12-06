@@ -20,7 +20,7 @@ module.exports = {
                     ['^(apollo)(/.*|$)'],
                     ['^(queries)(/.*|$)'],
                     ['^(mutations)(/.*|$)'],
-                    ['^(constants|general-types)(/.*|$)'],
+                    ['^(cons|general-types)(/.*|$)'],
                     ['^(data)(/.*|$)'],
                     ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
                     ['^(styles)(/.*|$)'],

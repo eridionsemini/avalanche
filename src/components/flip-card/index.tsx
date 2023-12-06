@@ -39,5 +39,4 @@ export const FlipCard: FC<FlipCardProps> = ({numbers, unit = '$'}): ReactElement
                 numbers={numbers}/>
         </div>
     )
-
 }
