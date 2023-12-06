@@ -31,7 +31,6 @@ export const FlipCard: FC<FlipCardProps> = ({numbers, unit = '$'}): ReactElement
                 height={18}
                 width={18}
                 numberStyle={numberStyle}
-                nonNumberStyle={{gap: '4px'}}
                 duration={5}
                 color="white"
                 background='black'
