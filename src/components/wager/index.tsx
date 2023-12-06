@@ -2,11 +2,12 @@ import React, {FC, ReactElement, useState} from "react";
 
 import {useMutation} from "@apollo/client";
 import {useDynamicContext} from "@dynamic-labs/sdk-react";
-import {ABI,walletAddress} from "cons";
 import {Contract, Signer, utils} from 'ethers';
 import {ReactSVG} from "react-svg";
 
 import {UPDATE_RAKE_BACK} from "mutations/rakeback";
+
+import {ABI,walletAddress} from "cons";
 
 import question from 'assets/svg/question.svg';
 import arrow from 'assets/svg/sidebar/arrow.svg';
