@@ -1,5 +1,7 @@
 import React, {FC, ReactElement} from 'react';
+
 import {ReactSVG} from "react-svg";
+
 import {LiveWinProps} from './types';
 
 export const LiveWin: FC<LiveWinProps> = ({imageSrc, walletAddress, amount, currency = '$'}): ReactElement => {

@@ -1,7 +1,10 @@
 import React, {FC, ReactElement} from 'react';
+
 import {ReactSVG} from "react-svg";
-import blink from '../../assets/svg/blink.svg';
+
 import {CardProps} from './types';
+
+import blink from 'assets/svg/blink.svg';
 
 export const Card: FC<CardProps> = ({title, description, imageUrl, content}): ReactElement => {
     const backgroundStyle = {

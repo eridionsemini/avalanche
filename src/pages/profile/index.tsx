@@ -1,4 +1,5 @@
 import React, {FC, ReactElement} from "react";
+
 import {useDynamicContext} from "@dynamic-labs/sdk-react";
 import {useNavigate} from 'react-router-dom';
 
@@ -9,17 +10,17 @@ export const Profile: FC = (): ReactElement => {
         handleUnlinkWallet,
         handleLogOut,
         setShowAuthFlow,
-        isAuthenticated
+        isAuthenticated,
     } = useDynamicContext();
 
     const navigate = useNavigate();
 
     const unLink = (id: string) => {
         (handleUnlinkWallet(id) as Promise<void>)
-            .then((res: any) =>
+            .then((res) =>
                 console.log("res", res, "connected wallets", connectedWallets)
             )
-            .catch((err: any) => console.log("err", err));
+            .catch((err) => console.log("err", err));
     }
 
     return (
@@ -31,7 +32,7 @@ export const Profile: FC = (): ReactElement => {
                 <div className='text-white text-center uppercase font-extrabold'>
                     Profile
                 </div>
-                {connectedWallets && connectedWallets.length > 0 && (
+                {connectedWallets.length > 0 && (
                     <>
                         <div className='text-white font-bold text-center mt-8'>Connected Wallets</div>
                         <div className='mt-8'>
@@ -55,12 +56,10 @@ export const Profile: FC = (): ReactElement => {
                     </>
                 )}
 
-
                 <div className="m-auto mt-4 px-2 font-bold text-white text-sm bg-green-500 rounded-md cursor-pointer"
                      onClick={isAuthenticated && primaryWallet ? () => handleLogOut() : () => setShowAuthFlow(true)}>
                     {isAuthenticated && primaryWallet ? <span> Logout</span> : <span>Login</span>}
                 </div>
-
             </div>
         </div>
     );

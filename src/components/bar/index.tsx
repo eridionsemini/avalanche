@@ -1,8 +1,10 @@
 import React, {FC, ReactElement} from "react";
+
 import {ReactSVG} from "react-svg";
-import dice from '../../assets/svg/bar/dice.svg';
-import volume from '../../assets/svg/bar/volume.svg';
-import slider from '../../assets/svg/bar/slider.svg';
+
+import dice from 'assets/svg/bar/dice.svg';
+import slider from 'assets/svg/bar/slider.svg';
+import volume from 'assets/svg/bar/volume.svg';
 
 export const Bar: FC = (): ReactElement => {
     return (

@@ -1,11 +1,13 @@
 import React, {FC, ReactElement} from "react";
+
 import {useDynamicContext} from "@dynamic-labs/sdk-react";
-import {ReactSVG} from "react-svg";
 import {useNavigate} from "react-router-dom";
-import logo from '../../assets/svg/navbar/logo.svg';
-import bet from '../../assets/svg/navbar/bet.svg';
-import user from '../../assets/svg/navbar/user.svg';
-import message from '../../assets/svg/navbar/message.svg';
+import {ReactSVG} from "react-svg";
+
+import bet from 'assets/svg/navbar/bet.svg';
+import logo from 'assets/svg/navbar/logo.svg';
+import message from 'assets/svg/navbar/message.svg';
+import user from 'assets/svg/navbar/user.svg';
 
 export const Navbar: FC = (): ReactElement => {
     const {

@@ -1,14 +1,19 @@
 import React, {FC, ReactElement} from "react";
+
 import {useQuery} from "@apollo/client";
-import {Sidebar, FlipCard, LiveWin, Card, CardContent, Slider, Navbar, Wager, Bar} from "../../components";
-import {useSocket} from "../../hooks";
-import {liveWinData} from "../../data/live-win";
-import bet from '../../assets/images/bet.jpg';
-import card from '../../assets/images/card.png';
-import {GET_JACKPOT} from "../../queries/jackpot";
+
+import {useSocket} from "hooks";
+
+import {Bar, Card, CardContent, FlipCard, LiveWin, Navbar, Sidebar, Slider, Wager} from "components";
+
+import {GET_JACKPOT} from "queries/jackpot";
+
+import {liveWinData} from "data/live-win";
+
+import bet from 'assets/images/bet.jpg';
+import card from 'assets/images/card.png';
 
 export const Home: FC = (): ReactElement => {
-
     const {rakeBack} = useSocket();
     const {data: jackpotData} = useQuery(GET_JACKPOT, {
         pollInterval: 10000,
@@ -57,14 +62,15 @@ export const Home: FC = (): ReactElement => {
                             <Card title='vWINR Rakeback'
                                   imageUrl={card}
                                   description='vWINR Rakeback'
-                                  content={<FlipCard numbers={rakeBack ? rakeBack.toString() : ''}/>}
+                                  content={<FlipCard numbers={rakeBack !== null ? rakeBack.toString() : ''}/>}
                             />
                         </div>
                         <div className="rounded min-h-40">
                             <Card title='Jackpot'
                                   imageUrl={card}
                                   description='Jackpot'
-                                  content={<FlipCard numbers={jackpotData ? jackpotData.getJackpot.toString() : ''}/>}
+                                  content={<FlipCard
+                                      numbers={jackpotData !== undefined ? jackpotData.getJackpot.toString() : ''}/>}
                             />
                         </div>
                     </div>

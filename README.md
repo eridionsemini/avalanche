@@ -4,6 +4,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+## Running Instructions
+
+Add .env file in the root of project with this values
+
+REACT_APP_GRAPHQL_API_URL='http://ec2-3-216-28-214.compute-1.amazonaws.com:4000/graphql'
+REACT_APP_WEB_SOCKET_URL='ws://ec2-3-216-28-214.compute-1.amazonaws.com:4000'
+
+run `npm i` in the root of app to install packages (node JS 16 or newer preferable to use new features of ESLINT)
+
+
 In the project directory, you can run:
 
 ### `npm start`

@@ -1,6 +1,8 @@
 import React, {FC, ReactElement} from "react";
-import {SidebarItemProps} from "./types";
+
 import {ReactSVG} from "react-svg";
+
+import {SidebarItemProps} from "./types";
 
 export const SidebarItem: FC<SidebarItemProps> = ({
                                                       icon,
