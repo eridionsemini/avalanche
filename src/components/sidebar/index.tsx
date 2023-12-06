@@ -51,7 +51,6 @@ export const Sidebar: FC = (): ReactElement => {
                             <ReactSVG src={googlePay}/>
                         </div>
                     </div>
-
                 </div>
             </aside>
     )
