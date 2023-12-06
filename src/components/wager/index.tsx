@@ -11,8 +11,6 @@ import {UPDATE_RAKE_BACK} from "mutations/rakeback";
 import question from 'assets/svg/question.svg';
 import arrow from 'assets/svg/sidebar/arrow.svg';
 
-
-
 export const Wager: FC = (): ReactElement => {
     const [wager, setWager] = useState<number>(0);
     const [multipleBets, setMultipleBets] = useState<number>(0);
@@ -23,7 +21,6 @@ export const Wager: FC = (): ReactElement => {
     })
 
     const {isAuthenticated, primaryWallet} = useDynamicContext();
-
 
     const deposit = async () => {
         if (!primaryWallet) {
