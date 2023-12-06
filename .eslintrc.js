@@ -4,7 +4,7 @@ module.exports = {
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
     ],
-    plugins: ['simple-import-sort', 'react-hooks', "@typescript-eslint"],
+    plugins: ['simple-import-sort', 'react-hooks', "@typescript-eslint", "prettier"],
     rules: {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
