@@ -17,7 +17,7 @@ export const Wager: FC = (): ReactElement => {
     const [multipleBets, setMultipleBets] = useState<number>(0);
     const [updateRakeback] = useMutation(UPDATE_RAKE_BACK, {
         variables: {
-            addRakeback: utils.parseEther((wager * multipleBets).toString())
+            addRakeback: Number(utils.parseEther((wager * multipleBets).toString()))
         }
     })
 
